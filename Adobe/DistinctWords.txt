@@ -1,0 +1,19 @@
+public:
+    long long int t[1001][1001];
+    long long int Solve(int N , int K , int cnt ){
+        if(N == 0)
+        return 1;
+        if (t[N][cnt] != -1)
+        return t[N][cnt];
+        if(cnt<K)
+        return t[N][cnt] = (21*Solve(N-1,K,0) + 5*Solve(N-1,K,cnt+1))%1000000007;
+        
+        if(cnt == K)
+        return t[N][cnt] = 21*Solve(N-1,K,0)%1000000007;
+    }
+    
+    int kvowelwords(int N, int K) {
+        // Write Your Code here
+        memset(t , -1, sizeof(t));
+        return Solve(N,K,0)%1000000007;
+    }
