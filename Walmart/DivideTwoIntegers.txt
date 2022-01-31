@@ -1,0 +1,13 @@
+class Solution {
+public:
+int divide(int dividend, int divisor) 
+{
+long long x = (long long ) dividend,y = (long long) divisor;
+long long k = x/y;
+if(k>=INT_MAX ) 
+return INT_MAX;
+if(k<+INT_MIN) 
+return INT_MIN;
+return (int) k;
+}
+};
